@@ -66,6 +66,9 @@
 #   with those defined in the init script and overwritten from the default
 #   file (/etc/default/elasticsearch or /etc/sysconfig/elasticsearch).
 #
+# [*service_provider*]
+#   Provider to use for the elasticsearch service
+#
 # [*initfile*]
 #   Source file to be used as the elasticsearch init script.
 #
@@ -123,6 +126,7 @@ class elasticsearch(
   $restart_on_change = $elasticsearch::params::restart_on_change,
   $confdir           = $elasticsearch::params::confdir,
   $service_settings  = $elasticsearch::params::service_settings,
+  $service_provider  = $elasticsearch::params::service_provider,
   $pkg_source        = undef,
   $version           = false,
   $java_install      = false,
