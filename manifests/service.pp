@@ -72,14 +72,14 @@ class elasticsearch::service {
 
   }
 
-  file {$elasticsearch::params::service_settings_path:
-    ensure  => file,
-    content => template("${module_name}/etc/default/elasticsearch.erb"),
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    notify  => Service['elasticsearch'],
-  }
+  #file {$elasticsearch::params::service_settings_path:
+  #  ensure  => file,
+  #  content => template("${module_name}/etc/default/elasticsearch.erb"),
+  #  owner   => 'root',
+  #  group   => 'root',
+  #  mode    => '0644',
+  #  notify  => Service['elasticsearch'],
+  #}
 
   if $elasticsearch::status != 'unmanaged' and $elasticsearch::initfile != undef {
     # Write service file
